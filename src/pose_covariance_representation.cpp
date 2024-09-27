@@ -162,7 +162,7 @@ Eigen::Matrix7d InverseCovarianceQuaternion(
   j_qi.block<3, 7>(0, 0) = j_qi_top;
 
   // j_qi bottom right 4x4 block
-  Eigen::DiagonalMatrix<double, 4> D(-1.0, -1.0, -1.0, 1.0);
+  Eigen::DiagonalMatrix<double, 4> D(Eigen::Vector4d(-1.0, -1.0, -1.0, 1.0));
   j_qi.block<4, 4>(3, 3) += D * j44;
 
   // j_qi bottom left 4x3 block
